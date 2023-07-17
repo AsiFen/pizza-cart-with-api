@@ -1,0 +1,118 @@
+
+html {
+    width: 90%;
+    background-image: url(./—Pngtree—gourmet\ food\ pizza\ background\ template_1092581.jpg);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* table,
+th,
+td {
+    border: 1px solid;
+} */
+
+table {
+    overflow-x: auto;
+    border-spacing: 0;
+}
+
+tbody {
+    white-space: nowrap;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    border-top-width: 0;
+    border-left-width: 0;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    vertical-align: bottom;
+}
+
+h1,
+h2 {
+    font-size: xx-large !important;
+    text-align: center;
+    color: white;
+}
+
+input {
+    width: 90px;
+    background: rgba(255, 255, 255, 0.466);
+}
+.messageError {
+margin: 0.4em;
+border: rgb(65, 1, 1) 1px solid;
+border-radius: 5px;
+padding: 0.4em;
+background-color: rgb(240, 184, 182);
+color: rgb(240, 29, 29);
+}
+
+.messageSuccess {
+margin: 0.4em;
+border: rgb(25, 105, 1) 1px solid;
+border-radius: 5px;
+padding: 0.4em;
+background-color: rgb(207, 255, 207);
+color: rgb(81, 240, 81);
+}
+
+.container {
+    display: flex;
+}
+
+.outline {
+    padding-left: 11px;
+    border-radius: 30px;
+    background-color: rgba(249, 253, 30, 0.445);
+}
+
+.operation {
+    background: rgb(179, 224, 110);
+    color: rgb(0, 0, 0);
+    outline-color: #000000;
+    /* text-shadow: #fff; */
+    /* background: none; */
+    width: 50px;
+    border-radius: 30px;
+}
+
+.pizzas {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 200px);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    /* border-right: white 2px solid; */
+}
+
+.pizza {
+    width: 150px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: yellow;
+}
+
+.btn {
+    background-color: rgb(179, 245, 103);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.pay {
+    background: greenyellow;
+
+    padding: 9px;
+    border-radius: 15px;
+}
+
+button{
+    background: greenyellow;
+}
