@@ -15,7 +15,7 @@
 
     <style>
         [x-cloak] {
-            display: none;
+            display: none !important;
         }
     </style>
 
@@ -23,19 +23,21 @@
 
 </head>
 
-<body x-data="pizzaCart" x-init="">
+<body x-data="pizzaCart" x-cloak>
     <h1>Cheeky Pitsa</h1>
 
     <div class="details" style="color: white;">
         username: <input type="text" x-model="username">
+        <button @click="login">Login</button>
+        <button @click="logout">Logout</button>
     </div>
-    <div class="details" style="color: white;">
+    <div class="details" style="color: white;" x-show="cartId">
         cart code: <span x-text="cartId"></span>
     </div>
     <div class="container">
 
 
-        <div class="inliner">
+        <div class="inliner" x-show="username && cartId">
             <h2>Pizzas</h2>
             <div class="pizzas">
                 <template x-for="pizza in pizzas">
@@ -58,7 +60,7 @@
 
         </div>
 
-        <div class="outline">
+        <div class="outline" x-show="cartTotal > 0">
             <div x-text="message" class="showMessage" style="text-align: center;">
                 asisipho
             </div>

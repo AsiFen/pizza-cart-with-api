@@ -5,25 +5,57 @@ document.addEventListener('alpine:init', () => {
         return {
             title: 'Cheeky Pitsa',
             pizzas: [],
-            username: 'asiFen',
+            username: '',
             cartId: '',
             cartPizzas: [],
             paymentAmount: 0,
             cartTotal: 0.00,
             message: '',
-
-            createCart() {
-                const createCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`
-                return axios.get(createCartURL)
-                    .then(result => {
-                        this.cartId = result.data.cart_code
-                    })
+            login() {
+                if (this.username.length > 4) {
+                    localStorage['username'] = this.username;
+                    this.createCart()
+                }
+                else {
+                    this.cartId = 'Username too short.'
+                }
             },
+
+            logout() {
+                if (confirm('Do you want to log out?')) {
+                    this.username = '',
+                        this.cartId = "",
+                        localStorage['cartId'] = '';
+                }
+
+            },
+            createCart() {
+                if (!this.username) {
+                    this.cartId = 'Please enter username.'
+                    return;
+                }
+
+                const cartId = localStorage['cartId']
+
+                if (cartId) {
+                    this.cartId = cartId;
+                } else {
+                    const createCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`
+                    return axios.get(createCartURL)
+                        .then(result => {
+                            this.cartId = result.data.cart_code
+                            localStorage['cartId'] = this.cartId
+                        })
+                }
+
+            },
+
             getCart() {
                 const getCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/${this.cartId}/get`
                 //call the api
                 return axios.get(getCartURL)
             },
+
             addPizza(pizzaId) {
                 return axios.post('https://pizza-api.projectcodex.net/api/pizza-cart/add',
                     {
@@ -57,6 +89,13 @@ document.addEventListener('alpine:init', () => {
 
 
             init() {
+
+                const username = localStorage['username']
+                if (username) {
+                    this.username = username
+
+                }
+
                 axios
                     .get('https://pizza-api.projectcodex.net/api/pizzas')
                     .then(result => {
@@ -64,16 +103,18 @@ document.addEventListener('alpine:init', () => {
                         this.pizzas = result.data.pizzas
                     });
 
-                this.showCart();
+                // this.showCart();
 
                 if (!this.cartId) {
-                    this.createCart()
-                        .then(result => {
-                            this.showCart()
-                        })
+                    this
+                        .createCart()
+                    //         .then(() => {
+                    //             this.showCart();
+                    //         })
                 }
-            },
+                this.showCart();
 
+            },
 
             addPizzaToCart(pizzaId) {
                 this.addPizza(pizzaId)
@@ -105,10 +146,12 @@ document.addEventListener('alpine:init', () => {
                             setTimeout(() => {
                                 // showMessage.classList.remove('messageSuccess')
                                 this.message = '';
+                                this.username = ''
                                 this.cartId = '';
                                 this.cartPizzas = [];
                                 this.cartTotal = 0.00
                                 this.paymentAmount = 0;
+                                localStorage['cartId'] = ''
                                 this.createCart();
                             }, 3000)
                         }
