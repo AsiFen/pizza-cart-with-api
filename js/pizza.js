@@ -12,7 +12,7 @@ document.addEventListener('alpine:init', () => {
             cartTotal: 0.00,
             message: '',
             login() {
-                if (this.username.length > 4) {
+                if (this.username.length > 3) {
                     localStorage['username'] = this.username;
                     this.createCart()
                 }
@@ -23,9 +23,15 @@ document.addEventListener('alpine:init', () => {
 
             logout() {
                 if (confirm('Do you want to log out?')) {
-                    this.username = '',
-                        this.cartId = "",
-                        localStorage['cartId'] = '';
+                    this.username = '';
+                    this.cartId = "";
+                    localStorage['username'] = '';
+                    localStorage['cartId'] = '';
+                    this.message = '';
+                    this.cartId = '';
+                    this.cartPizzas = [];
+                    this.cartTotal = 0.00;
+                    this.paymentAmount = 0;
                 }
 
             },
@@ -134,24 +140,25 @@ document.addEventListener('alpine:init', () => {
                     .payTotal(this.paymentAmount)
                     .then(result => {
                         if (result.data.status == 'failure') {
+                            showMessage.classList.add('messageSuccess')
                             this.message = result.data.message;
                             setTimeout(() => {
                                 this.message = ''
-                                // showMessage.classList.add('messageSuccess')
+                                showMessage.classList.remove('messageSuccess')
+
                             }, 3000)
                         }
                         else {
+                            showMessage.classList.add('messageError')
                             this.message = 'Payment received!'
-
                             setTimeout(() => {
-                                // showMessage.classList.remove('messageSuccess')
+                                showMessage.classList.remove('messageError')
                                 this.message = '';
-                                this.username = ''
                                 this.cartId = '';
                                 this.cartPizzas = [];
-                                this.cartTotal = 0.00
+                                this.cartTotal = 0.00;
                                 this.paymentAmount = 0;
-                                localStorage['cartId'] = ''
+                                localStorage['cartId'] = '';
                                 this.createCart();
                             }, 3000)
                         }

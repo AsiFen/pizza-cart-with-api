@@ -7,7 +7,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
 
@@ -23,21 +23,21 @@
 
 </head>
 
-<body x-data="pizzaCart" x-cloak>
-    <h1>Cheeky Pitsa</h1>
-
-    <div class="details" style="color: white;">
-        username: <input type="text" x-model="username">
-        <button @click="login">Login</button>
-        <button @click="logout">Logout</button>
+<body x-data="pizzaCart">
+    <h1 class="font-extrabold text-5xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-yellow-400">Cheeky Pitsa</h1>
+    <div class="user">
+        <div class="details" style="color: white;">
+            username: <input type="text" x-model="username">
+            <button @click="login" x-show="!cartId">Login</button>
+            <button @click="logout" x-show="cartId">Logout</button>
+        </div>
+        <div class="details" style="color: white;" x-show="cartId">
+            cart code: <span x-text="cartId"></span>
+        </div>
     </div>
-    <div class="details" style="color: white;" x-show="cartId">
-        cart code: <span x-text="cartId"></span>
-    </div>
-    <div class="container">
 
-
-        <div class="inliner" x-show="username && cartId">
+    <div class="container" x-cloak>
+        <div class="inliner" x-show="cartId && username">
             <h2>Pizzas</h2>
             <div class="pizzas">
                 <template x-for="pizza in pizzas">
@@ -106,7 +106,7 @@
         </div>
     </div>
 
-    <script src="./pizza.js">
+    <script src="./js/pizza.js">
     </script>
 </body>
 

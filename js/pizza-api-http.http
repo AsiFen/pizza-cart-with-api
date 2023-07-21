@@ -22,7 +22,7 @@ content-type: application/json
 
 {
 	"cart_code" : "tQAKzwdJoe",
-	"pizza_id" : 21
+	"pizza_id" : 0
 }
 
 ### Add a pizza to the cart
@@ -32,7 +32,7 @@ content-type: application/json
 
 {
 	"cart_code" : "tQAKzwdJoe",
-	"pizza_id" : 11
+	"pizza_id" : 29
 }
 
 ### Remove a pizza from the cart
@@ -61,6 +61,6 @@ content-type: application/json
 
 {
 	"cart_code" : "1Viq6bflWG",
-	"amount" : 200
+	"amount" : 2000
 }
 

@@ -1,7 +1,6 @@
-
 html {
-    width: 90%;
-    background-image: url(./—Pngtree—gourmet\ food\ pizza\ background\ template_1092581.jpg);
+    /* width: 90%; */
+    background-image: url(../img/—Pngtree—gourmet\ food\ pizza\ background\ template_1092581.jpg);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -34,33 +33,46 @@ th {
     vertical-align: bottom;
 }
 
+h1 {
+    background-color: rgb(254 240 138) !important;
+}
+
 h1,
 h2 {
-    font-size: xx-large !important;
+    margin-bottom: 0.5em;
+    font-size: xx-large;
     text-align: center;
     color: white;
 }
 
+/* .user {
+    color: white;
+    background: linear-gradient(to-right, #fa709a, #fee140) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text;
+} */
+
 input {
-    width: 90px;
+    width: 120px;
     background: rgba(255, 255, 255, 0.466);
-}
-.messageError {
-margin: 0.4em;
-border: rgb(65, 1, 1) 1px solid;
-border-radius: 5px;
-padding: 0.4em;
-background-color: rgb(240, 184, 182);
-color: rgb(240, 29, 29);
 }
 
 .messageSuccess {
-margin: 0.4em;
-border: rgb(25, 105, 1) 1px solid;
-border-radius: 5px;
-padding: 0.4em;
-background-color: rgb(207, 255, 207);
-color: rgb(81, 240, 81);
+    margin: 0.4em !important;
+    border: rgb(65, 1, 1) 1px solid !important;
+    border-radius: 5px !important;
+    padding: 0.4em !important;
+    background-color: rgb(240, 184, 182) !important;
+    color: rgb(240, 29, 29) !important;
+}
+
+.messageError {
+    margin: 0.4em !important;
+    border: rgb(25, 105, 1) 1px solid !important;
+    border-radius: 5px !important;
+    padding: 0.4em !important;
+    background-color: rgb(207, 255, 207) !important;
+    color: rgb(81, 240, 81) !important;
 }
 
 .container {
@@ -113,6 +125,22 @@ color: rgb(81, 240, 81);
     border-radius: 15px;
 }
 
-button{
+.user {
+border: yellowgreen solid 0.5px;
+background-color: #a2aa2c;
+    display: grid;
+    place-items: center;
+  
+    /* display: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%); */
+}
+
+button {
     background: greenyellow;
 }
+
+/* --tw-gradient-from: #facc15 var(--tw-gradient-from-position);
+--tw-gradient-to: rgb(250 204 21 / 0) var(--tw-gradient-to-position);
+--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); */
