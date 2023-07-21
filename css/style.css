@@ -77,6 +77,8 @@ input {
 
 .container {
     display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .outline {
@@ -98,10 +100,9 @@ input {
 .pizzas {
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(3, 150px);
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
-    /* border-right: white 2px solid; */
 }
 
 .pizza {
@@ -136,11 +137,45 @@ background-color: #a2aa2c;
     left: 50%;
     transform: translate(-50%,50%); */
 }
+.nothingToDisplay {
+    display: none;
+}
 
 button {
     background: greenyellow;
 }
 
-/* --tw-gradient-from: #facc15 var(--tw-gradient-from-position);
---tw-gradient-to: rgb(250 204 21 / 0) var(--tw-gradient-to-position);
---tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); */
+@media (max-width :1024px) {
+    /* html{
+font-size: smaller;
+    } */
+    .container{
+        flex-direction:column-reverse;
+        align-items: center;
+    }
+}
+
+@media (max-width:485px) {
+    .pizzas {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(2, 150px);
+        gap: 10px;
+        grid-auto-rows: minmax(80px, auto);
+    }
+}
+
+@media (max-width:455px) {
+    h1, .user, .container{
+        display: none;
+    }
+        .nothingToDisplay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: yellow;
+            background-color: rgba(241, 239, 71, 0.959);
+            padding: 3em;
+
+        }
+}
