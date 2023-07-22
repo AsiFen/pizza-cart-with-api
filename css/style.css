@@ -57,6 +57,9 @@ input {
     background: rgba(255, 255, 255, 0.466);
 }
 
+/* .featured{
+} */
+
 .messageSuccess {
     margin: 0.4em !important;
     border: rgb(65, 1, 1) 1px solid !important;

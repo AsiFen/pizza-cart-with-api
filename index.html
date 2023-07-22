@@ -24,7 +24,8 @@
 </head>
 
 <body x-data="pizzaCart">
-    <h1 class="font-extrabold text-5xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-yellow-400">Cheeky Pitsa</h1>
+    <h1 class="font-extrabold text-5xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-yellow-500">
+        Cheeky Pitsa</h1>
     <div class="user">
         <div class="details" style="color: white;">
             username: <input type="text" x-model="username">
@@ -38,8 +39,57 @@
 
     <div class="container" x-cloak>
         <div class="inliner" x-show="cartId && username">
-            <h2>Pizzas</h2>
+            <h2 class="text-2xl bg-gradient-to-r from-yellow-500 to-red-500">Today's Special</h2>
             <div class="pizzas">
+                <!-- featured pizza 1 -->
+                <div class="pizza bg-gradient-to-r from-yellow-500 to-red-500">
+                    <h5>Negronni Spagliatto</h5>
+                    <div>
+                        <span> small</span>
+                    </div>
+                    @
+                    <strong>R
+                        <span>60</span>
+                    </strong>
+                    <div>
+                        <br>
+                        <button class="feat">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- featured pizzza two -->
+                <div class="pizza bg-gradient-to-r from-yellow-500 to-red-500">
+                    <h5>Negronni Spagliatto</h5>
+                    <div>
+                        <span> medium</span>
+                    </div>
+                    @
+                    <strong>R
+                        <span>60</span>
+                    </strong>
+                    <div>
+                        <br>
+                        <button class="feat">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- featured pizza featured 3-->
+                <div class="pizza bg-gradient-to-r from-yellow-500 to-red-500">
+                    <h5>Negronni Spagliatto</h5>
+                    <div>
+                        <span>large</span>
+                    </div>
+                    @
+                    <strong>R
+                        <span>60</span>
+                    </strong>
+                    <div>
+                        <br>
+                        <button class="feat">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- <aside>
+                    <h1 class="font-extrabold text-2xl">Pizzas</h1>
+                </aside> -->
                 <template x-for="pizza in pizzas">
                     <div class="pizza">
                         <h5 x-text="pizza.flavour"></h5>
