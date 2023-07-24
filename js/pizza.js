@@ -11,6 +11,8 @@ document.addEventListener('alpine:init', () => {
             paymentAmount: 0,
             cartTotal: 0.00,
             message: '',
+            open: false,
+            currentUserHistory: [],
             login() {
                 if (this.username.length > 3) {
                     localStorage['username'] = this.username;
@@ -33,6 +35,13 @@ document.addEventListener('alpine:init', () => {
                     this.cartTotal = 0.00;
                     this.paymentAmount = 0;
                 }
+            },
+
+            showHistorical() {
+                const userHistory = localStorage['userHistory']
+                if (userHistory) {
+                    this.cartPizzas = this.currentUserHistory
+                }
 
             },
             createCart() {
@@ -51,6 +60,7 @@ document.addEventListener('alpine:init', () => {
                         .then(result => {
                             this.cartId = result.data.cart_code
                             localStorage['cartId'] = this.cartId
+                            // localStorage['UserHistory'] = 
                         })
                 }
 
@@ -89,8 +99,12 @@ document.addEventListener('alpine:init', () => {
                     const cartData = result.data
                     this.cartPizzas = cartData.pizzas
                     this.cartTotal = cartData.total
+                    this.currentUserHistory = cartData.pizzas
+                    localStorage['userHistory'] = cartData.pizzas
 
                 });
+
+
             },
 
 
@@ -151,6 +165,7 @@ document.addEventListener('alpine:init', () => {
                         else {
                             showMessage.classList.add('messageError')
                             this.message = 'Payment received!'
+                            this.open = true;
                             setTimeout(() => {
                                 showMessage.classList.remove('messageError')
                                 this.message = '';

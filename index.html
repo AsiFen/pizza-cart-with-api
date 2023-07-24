@@ -35,6 +35,7 @@
         <div class="details" style="color: white;" x-show="cartId">
             cart code: <span x-text="cartId"></span>
         </div>
+        <button x-show="open" @click="showHistorical()"> Show history</button>
     </div>
 
     <div class="container" x-cloak>
@@ -110,7 +111,7 @@
 
         </div>
 
-        <div class="outline" x-show="cartTotal > 0">
+        <div class="outline" x-show="cartTotal > 0; = true">
             <div x-text="message" class="showMessage" style="text-align: center;">
                 asisipho
             </div>
